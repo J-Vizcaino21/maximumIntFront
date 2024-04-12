@@ -1,0 +1,83 @@
+<div class="m-5">
+  <h1>Problem - 1374A</h1>
+  <p>
+    You are given three integers x,y and n . Your task is to find the maximum
+    integer k such that 0≤k≤n that kmodx=y , where mod is modulo operation. Many
+    programming languages use percent operator % to implement it. In other
+    words, with given x,y and n you need to find the maximum possible integer
+    from 0 to n that has the remainder y modulo x . You have to answer t
+    independent test cases. It is guaranteed that such k exists for each test
+    case.
+  </p>
+  <h2>Input</h2>
+  <p>
+    The first line of the input contains one integer t (1≤t≤5⋅104 ) — the number
+    of test cases. The next t lines contain test cases. The only line of the
+    test case contains three integers x,y and n (2≤x≤109; 0 ≤ y < x; y ≤ n ≤ 109
+    ). It can be shown that such k always exists under the given constraints.
+  </p>
+  <h2>Output</h2>
+  <p>
+    For each test case, print the answer — maximum non-negative integer k such
+    that 0≤k≤n and kmodx=y . It is guaranteed that the answer always exists.
+  </p>
+  <form [formGroup]="form" (ngSubmit)="OnFormSubmitted()">
+    <div class="d-flex justify-content-center align-items-center flex-column">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">X</span>
+        </div>
+        <input
+          type="number"
+          class="form-control"
+          aria-label="Default"
+          aria-describedby="inputGroup-sizing-default"
+          formControlName="modulo"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Y</span>
+        </div>
+        <input
+          type="number"
+          class="form-control"
+          aria-label="Default"
+          aria-describedby="inputGroup-sizing-default"
+          formControlName="residuo"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">N</span>
+        </div>
+        <input
+          type="number"
+          class="form-control"
+          aria-label="Default"
+          aria-describedby="inputGroup-sizing-default"
+          formControlName="maxNumber"
+        />
+      </div>
+      <button
+        class="form-control btn btn-primary"
+        style="max-width: 400px"
+        type="submit"
+        value="Submit"
+        (click)="(OnFormSubmitted)"
+        [disabled]="form.invalid"
+      >
+        Submit
+      </button>
+    </div>
+
+    <div class="form mt-3">
+      <p *ngIf="values">
+        The maximum possible integer from 0 to {{ values.maximumNumber }} that
+        has the remainder {{ values.remainder }} and modulo
+        {{ values.modulo }} is:
+        {{ maximumPossibleInt }}
+      </p>
+    </div>
+  </form>
+</div>
